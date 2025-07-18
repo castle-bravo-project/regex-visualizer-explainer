@@ -1,64 +1,180 @@
-# Regex Visualizer & Explainer
+# 🎯 Regex Visualizer & Explainer
 
-An interactive, web-based tool designed to help users learn, build, and test Regular Expressions (regex) in real-time. It provides instant visual feedback, an interactive pattern builder, and common presets to make working with regex intuitive and efficient.
+> Transform complex regular expressions into clear, interactive visualizations and human-readable explanations.
 
-This application is built with React, TypeScript, and Tailwind CSS, and runs entirely in the browser without needing a backend or complex build process.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Built with ❤️](https://img.shields.io/badge/Built%20with-❤️-red.svg)](https://github.com/castle-bravo-project/regex-visualizer-explainer)
 
-## Features
+## ✨ Features
 
-- **Real-time Matching**: Instantly see how your regex pattern affects the test string as you type.
-- **Match Highlighting**: All matching substrings are clearly highlighted in the output for easy identification.
-- **Interactive Regex Builder & Cheat Sheet**: Click on common regex tokens from the cheat sheet to append them directly to your expression, making it easy to construct complex patterns.
-- **Common Presets**: A selection of one-click presets for common patterns like emails, URLs, IP addresses, and more, complete with sample test strings.
-- **File Upload for Test String**: Easily load a test string by uploading a `.txt` file directly into the test area.
-- **Match Count & Error Handling**: A dynamic counter shows the total number of matches found. If the regex pattern is invalid, a clear error message is displayed to help with debugging.
-- **Analysis Report**: Generate a detailed report including the pattern, test string, and a numbered list of all matches. This report can be easily copied to the clipboard or downloaded as a `.txt` file.
-- **Fully Client-Side**: All regex processing is done locally in your browser. No data, patterns, or test strings are ever sent to a server.
-- **Responsive Design**: The user interface is fully responsive and works seamlessly on desktop, tablet, and mobile devices.
+- **🎨 Interactive Visualizations**: Transform regex patterns into beautiful, understandable diagrams
+- **📖 Plain English Explanations**: Get human-readable descriptions of what your regex does
+- **🔍 Step-by-Step Breakdown**: Understand each component of your regular expression
+- **🌈 Syntax Highlighting**: Color-coded regex patterns for better readability
+- **🧪 Live Testing**: Test your regex against sample strings in real-time
+- **📱 Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **🚀 Performance Optimized**: Fast rendering even for complex regex patterns
+- **🔄 Export Options**: Save visualizations as images or share via URL
 
-## Getting Started
+## 🚀 Demo
 
-This project is designed to be as simple as possible to run. There is no build step or package installation required.
+Try it live: [Regex Visualizer Demo](https://your-demo-url.com)
 
-### How to Use
+![Demo GIF](assets/demo.gif)
 
-1.  Clone or download this repository to your local machine.
-2.  Open the `index.html` file directly in a modern web browser (like Chrome, Firefox, or Edge).
+## 🛠️ Installation
 
-That's it! The application will load and be ready to use.
+### Prerequisites
 
-### Usage Walkthrough
+- Node.js (v16 or higher)
+- npm or yarn
 
-1.  **Enter a Pattern**: Type your regex pattern into the "Regular Expression" input field.
-2.  **Build Your Pattern**: Use the "Regex Builder & Cheat Sheet" on the right. Click any item to add its token (like `\d` or `+`) to your expression.
-3.  **Provide a Test String**: Enter the text you want to search in the "Test String" area, or click "Upload .txt" to load a file.
-4.  **Analyze the Matches**: Look at the "Matches" section. Any parts of your test string that match the pattern will be highlighted, and the counter will show the total number of matches found.
-5.  **Use Presets**: Click any button in the "Presets" section to load a common regex pattern and a corresponding test string to see how it works.
-6.  **Generate a Report**: Once you're satisfied with your analysis, click the "Report" button to open a modal with a clean summary, which you can then copy or download.
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/castle-bravo-project/regex-visualizer-explainer.git
+
+# Navigate to the project directory
+cd regex-visualizer-explainer
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+
+The application will be available at `http://localhost:3000`
+
+### Docker (Alternative)
+
+```bash
+# Build and run with Docker
+docker build -t regex-visualizer .
+docker run -p 3000:3000 regex-visualizer
+```
+
+## 📚 Usage
+
+### Basic Usage
+
+1. **Enter your regex pattern** in the input field
+2. **View the visualization** that appears automatically
+3. **Read the explanation** generated in plain English
+4. **Test with sample strings** to verify your pattern works correctly
+
+### Advanced Features
+
+#### Visualization Types
+
+- **Railroad Diagrams**: Classic flow-chart style visualization
+- **Syntax Trees**: Hierarchical breakdown of regex components
+- **State Machines**: Finite automaton representation
+
+#### Explanation Modes
+
+- **Beginner**: Simple, jargon-free explanations
+- **Intermediate**: More technical details with examples
+- **Expert**: Complete technical breakdown with edge cases
 
 ### Examples
 
-**Example 1: Find all phone numbers**
--   **Regex Pattern**: `\(?\d{3}\)?[-\s.]?\d{3}[-\s.]\d{4}`
--   **Test String**: `My number is 415-555-1234. You can also reach me at (800) 987.6543.`
--   **Result**: Both `415-555-1234` and `(800) 987.6543` will be highlighted.
+```regex
+# Email validation
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
 
-**Example 2: Validate Hex Color Codes**
--   **Regex Pattern**: `#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b`
--   **Test String**: `The primary color is #FF5733 and the secondary is #333. An invalid one is #GHI.`
--   **Result**: `#FF5733` and `#333` will be highlighted.
+# Phone number (US format)
+^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$
 
-## Roadmap
+# URL matching
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+```
 
-Here are some planned features to make the application more robust and powerful in the future.
+## 🏗️ Architecture
 
-1.  **Gemini API for Regex Generation**: Implement a feature where a user can describe a pattern in natural language (e.g., "a 10-digit phone number with an optional area code in parentheses"), and use the Gemini API to generate the correct regex pattern.
-2.  **Gemini API for Regex Explanation**: Instead of a static cheat sheet, send the user's current regex pattern to the Gemini API to receive a detailed, step-by-step explanation of what each component of the pattern does.
-3.  **Structured JSON Output (Castle Bravo Compatibility)**: Add an option to the report modal to generate a structured JSON output. This output would be designed for programmatic use and compatibility with the Castle Bravo Project suite of tools, detailing each match, its index, and any capture groups.
-4.  **Capture Group Visualization**: Enhance the "Matches" view to not only highlight the full match but also individually identify and list the contents of any capture groups `(...)` within the regex.
-5.  **UI Toggles for Regex Flags**: Add simple checkboxes or toggles to enable/disable global flags like `i` (case-insensitive), `m` (multi-line), and `s` (dotall).
-6.  **Regex Saving & Sharing**: Allow users to save their patterns locally in their browser or generate a unique, shareable URL that pre-fills the tool with a specific regex and test string.
-7.  **Advanced Syntax Highlighting**: Implement syntax highlighting within the regex input field itself to color-code different components of the pattern (quantifiers, groups, anchors, etc.), making complex patterns easier to read.
-8.  **Regex Golf & Puzzles**: Introduce a "Challenges" section with a series of puzzles that require users to write a regex to solve them, turning learning into a game.
-9.  **Performance Insights**: For very complex or inefficient patterns, provide a warning about potential performance issues (e.g., "catastrophic backtracking") and suggest possible optimizations.
-10. **Theme Toggle**: Add a button to allow users to switch between the current dark theme and a new light theme.
+### Tech Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Visualization**: D3.js for interactive diagrams
+- **Styling**: Tailwind CSS for responsive design
+- **Testing**: Jest & React Testing Library
+- **Build**: Vite for fast development and optimized builds
+
+### Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── Visualizer/     # Main visualization component
+│   ├── Explainer/      # Explanation generator
+│   └── UI/             # Reusable UI components
+├── utils/              # Utility functions
+│   ├── parser.ts       # Regex parsing logic
+│   ├── visualizer.ts   # Visualization generation
+│   └── explainer.ts    # Explanation generation
+├── types/              # TypeScript type definitions
+├── hooks/              # Custom React hooks
+└── tests/              # Test files
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and add tests
+4. Ensure all tests pass: `npm test`
+5. Commit your changes: `git commit -m 'Add amazing feature'`
+6. Push to the branch: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+### Code Style
+
+- Use TypeScript for type safety
+- Follow the existing code formatting (Prettier configured)
+- Write tests for new features
+- Keep components small and focused
+
+## 🐛 Bug Reports & Feature Requests
+
+Found a bug or have a feature request? Please check our [Issues](https://github.com/castle-bravo-project/regex-visualizer-explainer/issues) page.
+
+When reporting bugs, please include:
+- Your operating system and browser version
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Screenshots if applicable
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by [Regexper](https://regexper.com/) and [Regex101](https://regex101.com/)
+- Built with the amazing [D3.js](https://d3js.org/) visualization library
+- Icons from [Lucide React](https://lucide.dev/)
+- Special thanks to all contributors and the open-source community
+
+## 📈 Roadmap
+
+- [ ] **Advanced Regex Features**: Support for lookaheads, lookbehinds, and named groups
+- [ ] **Multiple Flavors**: Support for different regex engines (JavaScript, Python, Java, etc.)
+- [ ] **Collaborative Features**: Share and collaborate on regex patterns
+- [ ] **Performance Analyzer**: Identify performance bottlenecks in regex patterns
+- [ ] **Mobile App**: Native mobile application for iOS and Android
+- [ ] **API Integration**: RESTful API for programmatic access
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by the Castle Bravo Project team</p>
+  <p>
+    <a href="https://github.com/castle-bravo-project">GitHub</a> •
+  </p>
+</div>
