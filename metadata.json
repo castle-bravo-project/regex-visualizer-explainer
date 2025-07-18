@@ -1,0 +1,5 @@
+{
+  "name": "Regex Visualizer & Explainer",
+  "description": "An interactive tool to help users learn, build, and test regular expressions in real-time. Input a regex pattern and a test string to see instant match highlighting, and consult the cheat sheet for common tokens.",
+  "requestFramePermissions": []
+}
